@@ -1,0 +1,4 @@
+[servers]
+os1 ansible_ssh_host=os1.lab.local
+os2 ansible_ssh_host=os2.lab.local
+os3 ansible_ssh_host=os3.lab.local
