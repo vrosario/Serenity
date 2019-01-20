@@ -7,7 +7,7 @@
     packages:
       - centos-release-gluster41
       - glusterfs 
-      - gluster-cli 
+      - glusterfs-cli 
       - glusterfs-libs 
       - glusterfs-server
 
