@@ -6,6 +6,7 @@
     description: EPEL YUM repo
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
 - name: Upgrade all packages, excluding kernel packages
+  become: true
   yum:
     name: '*'
     state: latest
