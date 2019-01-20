@@ -1,0 +1,20 @@
+---
+- name: Create xfs filesystem
+  filesystem:
+    fstype: xfs
+    dev: "{{item}}" 
+  with_items:
+    - "/dev/sdb"
+- name: Create directory to mount filesystem on
+  file:
+    path: "{{item}}" 
+    state: directory
+  with_items:
+    - "/data/openshift"
+- name: Mount filesystem
+  mount:
+    path: "/data/openshift"
+    src: /dev/sdb
+    fstype: xfs
+    opts: defaults
+    state: present
