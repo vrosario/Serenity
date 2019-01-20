@@ -11,12 +11,12 @@
     name: epel
     description: EPEL YUM repo
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
-- name: Add CentOS PAAS Sig Test repository
+- name: Add Origin RPMs repository
   become: true
   yum_repository:
-    name: centos-okd-ci
-    description: centos-okd-ci
-    baseurl: http://buildlogs.centos.org/centos/7/paas/x86_64/openshift-origin311/
+    name: Origin RPMs
+    description: Openshift Origin RPMs
+    baseurl: https://storage.googleapis.com/origin-ci-test/logs/test_branch_origin_extended_conformance_gce/3628/artifacts/rpms
 - name: Upgrade all packages
   become: true
   yum:
