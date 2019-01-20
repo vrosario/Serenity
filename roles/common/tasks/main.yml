@@ -17,11 +17,11 @@
     name: Origin RPMs
     description: Openshift Origin RPMs
     baseurl: https://storage.googleapis.com/origin-ci-test/logs/test_branch_origin_extended_conformance_gce/3628/artifacts/rpms
-- name: Upgrade all packages
-  become: true
-  yum:
-    name: '*'
-    state: latest
+# - name: Upgrade all packages
+#   become: true
+#   yum:
+#     name: '*'
+#     state: latest
 - name: Install common packages
   become: true
   yum:
@@ -43,3 +43,4 @@
       - psacct
       - docker-1.13.1
       - glusterfs-fuse
+      - centos-release-openshift-origin311
