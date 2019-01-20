@@ -1,4 +1,5 @@
 ---
+apply_gluster_role: false
 # gluster volume
 gluster_cluster_hosts: "{{ groups['gluster_servers'] }}"
 # gluster_cluster_hosts: 
