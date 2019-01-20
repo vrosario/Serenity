@@ -1,0 +1,17 @@
+---
+# gluster volume
+gluster_cluster_hosts:
+  - os1
+  - os2 
+  - os3
+gluster_cluster_volume: openshift_vol
+gluster_cluster_transport: 'tcp'
+gluster_cluster_force: 'yes'
+gluster_cluster_bricks: '/data/openshift'
+
+# variables to create specific type of the volume
+gluster_cluster_replica_count: 3
+gluster_cluster_arbiter_count: 1
+
+# variables to set specific volume options
+gluster_cluster_options: 'performance.cache-size:256MB'
