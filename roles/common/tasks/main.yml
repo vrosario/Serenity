@@ -5,12 +5,11 @@
     name: epel
     description: EPEL YUM repo
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
-- name: Upgrade all packages, excluding kernel packages
+- name: Upgrade all packages
   become: true
   yum:
     name: '*'
     state: latest
-    exclude: kernel*
 - name: Install common packages
   become: true
   yum:
