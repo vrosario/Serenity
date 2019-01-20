@@ -1,5 +1,5 @@
 ---
-# glster volume
+# gluster volume
 # gluster_cluster_hosts: "{{ groups['gluster_servers'] }}"
 gluster_cluster_hosts: 
   - 192.168.206.72 #os1
