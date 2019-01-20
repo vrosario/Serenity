@@ -1,5 +1,4 @@
 ---
-- hosts: webservers
+- hosts: servers
   roles:
      - common
-     - gluster-role
