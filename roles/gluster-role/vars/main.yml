@@ -1,6 +1,6 @@
 ---
 # gluster volume
-gluster_cluster_hosts: [os1, os2, os3]
+gluster_cluster_hosts: "{{ groups['gluster_servers'] }}"
 gluster_cluster_volume: openshift_vol
 gluster_cluster_transport: 'tcp'
 gluster_cluster_force: 'yes'
