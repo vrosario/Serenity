@@ -1,7 +1,6 @@
 ---
 - name: Create Gluster cluster
   become: true
-  gather_facts: false
-  
-  roles:
-    - gluster.cluster
+
+  include_role:
+    name: gluster.cluster
