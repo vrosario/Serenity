@@ -5,7 +5,7 @@
     name: "{{ packages }}"
   vars:
     packages:
-      - centos-release-gluster41
+      - centos-release-gluster
       - glusterfs 
       - glusterfs-cli 
       - glusterfs-libs 
