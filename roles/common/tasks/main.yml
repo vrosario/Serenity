@@ -16,7 +16,7 @@
   yum_repository:
     name: centos-okd-ci
     description: centos-okd-ci
-    baseurl: http://buildlogs.centos.org/centos/7/paas/x86_64/openshift-origin311%7D/
+    baseurl: http://buildlogs.centos.org/centos/7/paas/x86_64/openshift-origin311/
 - name: Upgrade all packages
   become: true
   yum:
