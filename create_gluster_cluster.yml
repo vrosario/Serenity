@@ -1,0 +1,19 @@
+---
+- hosts: gluster_servers
+  become: true
+  tasks:
+    - name: create gluster volume
+      gluster_volume:
+        state: present
+        name: openshift_vol
+        bricks: /data/openshift
+        rebalance: yes
+        cluster:
+          - 192.168.206.72 #os1
+          - 192.168.206.71 #os2
+          - 192.168.206.73 #os3
+        options:
+          {
+            performance.cache-size: 256MB
+          }
+      run_once: true
