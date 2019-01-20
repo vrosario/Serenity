@@ -34,4 +34,11 @@
     fstype: xfs
     opts: defaults
     state: present
+- name: Create brick directory
+  become: true
+  file:
+    path: "{{item}}" 
+    state: directory
+  with_items:
+    - "/data/openshift/brick"
 - import_tasks: gluster-tasks.yml

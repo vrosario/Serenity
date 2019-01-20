@@ -8,7 +8,7 @@ gluster_cluster_hosts: "{{ groups['gluster_servers'] }}"
 gluster_cluster_volume: openshift_vol
 gluster_cluster_transport: 'tcp'
 gluster_cluster_force: 'yes'
-gluster_cluster_bricks: '/data/openshift'
+gluster_cluster_bricks: '/data/openshift/brick'
 
 # variables to create specific type of the volume
 gluster_cluster_replica_count: 3

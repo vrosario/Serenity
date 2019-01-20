@@ -6,7 +6,7 @@
       gluster_volume:
         state: present
         name: openshift_vol
-        bricks: /data/openshift
+        bricks: /data/openshift/brick
         rebalance: yes
         cluster:
           - 192.168.206.72 #os1
