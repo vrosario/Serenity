@@ -36,3 +36,4 @@
       - sos 
       - psacct
       - docker-1.13.1
+      - glusterfs-fuse
