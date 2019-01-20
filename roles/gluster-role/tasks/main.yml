@@ -34,4 +34,4 @@
     fstype: xfs
     opts: defaults
     state: present
-- import_playbook: gluster-tasks.yml
+- import_tasks: gluster-tasks.yml
