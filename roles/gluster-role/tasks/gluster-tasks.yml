@@ -3,4 +3,4 @@
   become: true
 
   include_role:
-    name: gluster-ansible-cluster
+    name: gluster.cluster
