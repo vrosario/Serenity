@@ -24,3 +24,15 @@
     packages:
       - vim
       - tmux
+      - wget 
+      - git 
+      - net-tools 
+      - bind-utils 
+      - yum-utils 
+      - iptables-services 
+      - bridge-utils 
+      - bash-completion 
+      - kexec-tools 
+      - sos 
+      - psacct
+      - docker-1.13.1
