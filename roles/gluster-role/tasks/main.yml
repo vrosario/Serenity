@@ -1,4 +1,17 @@
 ---
+- name: Checking Gluster packages are installed
+  become: true
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - centos-release-gluster41
+      - glusterfs 
+      - gluster-cli 
+      - glusterfs-libs 
+      - glusterfs-server
+
+# Filesystem creation tasks
 - name: Create xfs filesystem
   become: true
   filesystem:
