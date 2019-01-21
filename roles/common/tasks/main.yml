@@ -68,4 +68,4 @@
       - psacct
       - docker-1.13.1
       - glusterfs-fuse
-      - centos-release-openshift-origin310
+      - centos-release-openshift-origin311
