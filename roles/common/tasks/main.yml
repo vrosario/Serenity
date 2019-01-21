@@ -5,19 +5,18 @@
     name: firewalld
     state: stopped
     enabled: False
-- name: Add EPEL repository
-  become: true
-  yum_repository:
-    name: epel
-    description: EPEL YUM repo
-    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
-- name: Add Origin RPMs repository
-  become: true
-  yum_repository:
-    name: Origin RPMs
-    description: Openshift Origin RPMs
-    baseurl: https://storage.googleapis.com/origin-ci-test/logs/test_branch_origin_extended_conformance_gce/3628/artifacts/rpms
-# - name: Upgrade all packages
+- name: Import EPEL role
+  import_role: 
+    name: ansible-role-repo-epel
+
+# - name: Add Origin RPMs repository
+#   become: true
+#   yum_repository:
+#     name: Origin RPMs
+#     description: Openshift Origin RPMs
+#     baseurl: https://storage.googleapis.com/origin-ci-test/logs/test_branch_origin_extended_conformance_gce/3628/artifacts/rpms
+
+    # - name: Upgrade all packages
 #   become: true
 #   yum:
 #     name: '*'
