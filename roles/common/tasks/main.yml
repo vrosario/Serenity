@@ -6,6 +6,7 @@
     state: stopped
     enabled: False
 - name: Import EPEL role
+  become: true
   import_role: 
     name: ansible-role-repo-epel
 
