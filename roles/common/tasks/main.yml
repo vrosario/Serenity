@@ -9,7 +9,32 @@
   become: true
   import_role: 
     name: ansible-role-repo-epel
+####
 
+# - name: Check if Origin Testing repo is already configured.
+#   stat: 
+#     path: "/etc/yum.repos.d/epel.repo"
+#   register: origin_repofile_result
+
+# - name: Install Origin Testing repo.
+#   yum:
+#     name: "https://cbs.centos.org/repos/paas7-openshift-origin311-testing/x86_64/os/"
+#     state: present
+#   register: result
+#   until: 'result.rc == 0'
+#   retries: 5
+#   delay: 10
+#   when: not origin_repofile_result.stat.exists
+
+# - name: Import Origin Testing GPG key.
+#   rpm_key:
+#     key: "/etc/pki/rpm-gpg/RPM-GPG-KEY-ORIGIN-311ribution_major_version }}"
+#     state: present
+#   when: not origin_repofile_result.stat.exists
+#   ignore_errors: "{{ ansible_check_mode }}"
+
+
+####
 # - name: Add Origin RPMs repository
 #   become: true
 #   yum_repository:
