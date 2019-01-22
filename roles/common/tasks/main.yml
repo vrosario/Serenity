@@ -5,10 +5,10 @@
     name: firewalld
     state: stopped
     enabled: False
-- name: Import EPEL role
-  become: true
-  import_role: 
-    name: ansible-role-repo-epel
+# - name: Import EPEL role
+#   become: true
+#   import_role: 
+#     name: ansible-role-repo-epel
 ####
 
 # - name: Check if Origin Testing repo is already configured.
