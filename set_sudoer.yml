@@ -1,6 +1,6 @@
 ---
 #Use with -K
-- hosts: lab3-servers
+- hosts: servers
   become: true
   tasks:
     - lineinfile:
