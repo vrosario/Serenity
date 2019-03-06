@@ -1,0 +1,9 @@
+---
+#Use with --ask-pass
+- hosts: lab3-servers
+  tasks:
+  - name: Set authorized key taken from file
+    authorized_key:
+      user: student
+      state: present
+      key: "{{ lookup('file', '/home/student/.ssh/id_rsa.pub') }}"
