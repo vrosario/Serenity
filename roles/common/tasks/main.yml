@@ -5,10 +5,11 @@
     name: firewalld
     state: stopped
     enabled: False
-# - name: Import EPEL role
-#   become: true
-#   import_role: 
-#     name: ansible-role-repo-epel
+
+- name: Install EPEL repository
+  yum: 
+    name: epel-release
+    state: present
 ####
 
 # - name: Check if Origin Testing repo is already configured.
@@ -42,11 +43,18 @@
 #     description: Openshift Origin RPMs
 #     baseurl: https://storage.googleapis.com/origin-ci-test/logs/test_branch_origin_extended_conformance_gce/3628/artifacts/rpms
 
-    # - name: Upgrade all packages
-#   become: true
-#   yum:
-#     name: '*'
-#     state: latest
+- name: Upgrade all packages
+  become: true
+  yum:
+    name: '*'
+    state: latest
+
+- name: Disable SELinux
+  become: true
+  selinux:
+    state: disabled
+  notify: Restart server
+
 - name: Install common packages
   become: true
   yum:
@@ -69,9 +77,9 @@
       - docker-1.13.1
       - glusterfs-fuse
       - centos-release-openshift-origin310
-- name: Uninstall Origin 3.11
-  become: true
-  yum:
-    name: "centos-release-openshift-origin311"
-    state: removed
+# - name: Uninstall Origin 3.11
+#   become: true
+#   yum:
+#     name: "centos-release-openshift-origin311"
+#     state: removed
 

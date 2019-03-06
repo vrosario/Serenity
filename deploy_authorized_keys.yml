@@ -1,6 +1,6 @@
 ---
 #Use with --ask-pass
-- hosts: lab3-servers
+- hosts: servers
   tasks:
   - name: Set authorized key taken from file
     authorized_key:
