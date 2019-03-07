@@ -1,8 +1,6 @@
 ---
 #Use with -K
 - hosts: servers
-  vars:
-    sudoer_user: "student"
   become: true
   tasks:
     - lineinfile:

@@ -9,7 +9,7 @@
       - glusterfs 
       - glusterfs-cli 
       - glusterfs-libs 
-      - glusterfs-server
+      # - glusterfs-server
 
 - name: Install Heketi on master
   become: true
