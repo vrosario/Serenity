@@ -22,6 +22,12 @@
   delegate_to: os1.lab.local
   run_once: true
 
+- name: Copy SSH key to Heketi directory
+  become: true
+  copy:
+    dest: /etc/heketi/heketi_key
+    src: /home/student/.ssh/id_rsa.pub
+
 # Filesystem creation tasks
 - name: Create xfs filesystem
   become: true
