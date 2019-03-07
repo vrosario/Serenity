@@ -50,11 +50,11 @@
     name: '*'
     state: latest
 
-- name: Disable SELinux
-  become: true
-  selinux:
-    state: enforcing
-  notify: Restart server
+# - name: Disable SELinux
+#   become: true
+#   selinux:
+#     state: enforcing
+#   notify: Restart server
 
 - name: Install common packages
   become: true
