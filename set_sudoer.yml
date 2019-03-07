@@ -1,11 +1,13 @@
 ---
 #Use with -K
 - hosts: servers
+  vars:
+    sudoer_user: "student"
   become: true
   tasks:
     - lineinfile:
         path: /etc/sudoers
         state: present
         regexp: '^%sudo'
-        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+        line: '%sudo ALL=(ALL) NOPASSWD: ALL\n{{ sudoer_user }} ALL=(ALL) NOPASSWD: ALL\n'
         validate: 'visudo -cf %s'
