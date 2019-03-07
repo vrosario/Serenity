@@ -53,7 +53,7 @@
 - name: Disable SELinux
   become: true
   selinux:
-    state: disabled
+    state: enforcing
   notify: Restart server
 
 - name: Install common packages
