@@ -1,3 +1,4 @@
 ---
 - name: Restart server
+  become: true
   reboot:
