@@ -2,4 +2,4 @@
 - hosts: servers
   roles:
      - common
-#     - gluster-role
+     - gluster-role
