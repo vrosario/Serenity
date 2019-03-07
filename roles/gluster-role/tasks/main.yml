@@ -11,6 +11,17 @@
       - glusterfs-libs 
       - glusterfs-server
 
+- name: Install Heketi on master
+  become: true
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - heketi
+      - heketi-client
+  delegate_to: os1.lab.local
+  run_once: true
+
 # Filesystem creation tasks
 - name: Create xfs filesystem
   become: true
@@ -19,6 +30,7 @@
     dev: "{{item}}" 
   with_items:
     - "/dev/sdb"
+  when: gluster_create_filesystem == true
 - name: Create directory to mount filesystem on
   become: true
   file:
@@ -26,6 +38,7 @@
     state: directory
   with_items:
     - "/data/openshift"
+  when: gluster_create_filesystem == true
 - name: Mount filesystem
   become: true
   mount:
@@ -34,6 +47,7 @@
     fstype: xfs
     opts: defaults
     state: present
+  when: gluster_create_filesystem == true
 - name: Create brick directory
   become: true
   file:
@@ -42,4 +56,4 @@
   with_items:
     - "/data/openshift/brick"
 - import_tasks: gluster-tasks.yml
-  when: apply_gluster_role == true
+  when: apply_gluster_role == true and gluster_create_filesystem == true
