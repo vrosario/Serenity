@@ -11,6 +11,13 @@
       - glusterfs-libs 
       # - glusterfs-server
 
+- name: Set SELinux policies for GlusterFS
+  become: true
+  command: "{{ item }}"
+  with_items:
+    - "setsebool -P virt_sandbox_use_fusefs on"
+    - "setsebool -P virt_use_fusefs on"
+  
 - name: Install Heketi on master
   become: true
   yum:
