@@ -18,29 +18,16 @@
   yum: 
     name: epel-release
     state: present
-####
 
-# - name: Check if Origin Testing repo is already configured.
-#   stat: 
-#     path: "/etc/yum.repos.d/epel.repo"
-#   register: origin_repofile_result
-
-# - name: Install Origin Testing repo.
-#   yum:
-#     name: "https://cbs.centos.org/repos/paas7-openshift-origin311-testing/x86_64/os/"
-#     state: present
-#   register: result
-#   until: 'result.rc == 0'
-#   retries: 5
-#   delay: 10
-#   when: not origin_repofile_result.stat.exists
-
-# - name: Import Origin Testing GPG key.
-#   rpm_key:
-#     key: "/etc/pki/rpm-gpg/RPM-GPG-KEY-ORIGIN-311ribution_major_version }}"
-#     state: present
-#   when: not origin_repofile_result.stat.exists
-#   ignore_errors: "{{ ansible_check_mode }}"
+- name: Add Origin repo
+  become: true
+  yum_repository:
+    name: origin-repo
+    description: Origin RPMs
+    baseurl: https://storage.googleapis.com/origin-ci-test/logs/test_branch_origin_extended_conformance_gce_310/27/artifacts/rpms
+    gpgcheck: no
+    enabled: yes
+  notify: yum-clean-metadata
 
 
 ####
