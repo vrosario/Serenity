@@ -1,0 +1,56 @@
+{
+    "clusters": [
+        {
+            "nodes": [
+                {
+                    "node": {
+                        "hostnames": {
+                            "manage": [
+                                "$MASTER_1_IP"
+                            ],
+                            "storage": [
+                                "$MASTER_1_IP"
+                            ]
+                        },
+                        "zone": 1
+                    },
+                    "devices": [
+                        "/dev/docker/gluster"
+                    ]
+                },
+                {
+                    "node": {
+                        "hostnames": {
+                            "manage": [
+                                "$NODE_2_IP"
+                            ],
+                            "storage": [
+                                "$NODE_2_IP"
+                            ]
+                        },
+                        "zone": 1
+                    },
+                    "devices": [
+                        "/dev/docker/gluster"
+                    ]
+                },
+                {
+                    "node": {
+                        "hostnames": {
+                            "manage": [
+                                 "$NODE_3_IP"
+                            ],
+                            "storage": [
+                                 "$NODE_3_IP"
+                             ]
+                         },
+                        "zone": 2
+                    },
+                     "devices": [
+                        "/dev/docker/gluster"
+                    ]
+                 }
+            ]
+        }
+    ]
+}
