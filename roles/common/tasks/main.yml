@@ -19,6 +19,16 @@
     name: epel-release
     state: present
 
+# - name: Add Origin repo
+#   become: true
+#   yum_repository:
+#     name: origin-repo
+#     description: Origin RPMs
+#     baseurl: https://storage.googleapis.com/origin-ci-test/logs/test_branch_origin_extended_conformance_gce_310/27/artifacts/rpms
+#     gpgcheck: no
+#     enabled: yes
+#   notify: yum-clean-metadata
+
 - name: Add Origin repo
   become: true
   yum_repository:
@@ -26,9 +36,8 @@
     description: Origin RPMs
     baseurl: https://storage.googleapis.com/origin-ci-test/logs/test_branch_origin_extended_conformance_gce_310/27/artifacts/rpms
     gpgcheck: no
-    enabled: yes
+    enabled: no
   notify: yum-clean-metadata
-
 
 ####
 # - name: Add Origin RPMs repository
