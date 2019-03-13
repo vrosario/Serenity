@@ -18,6 +18,19 @@
     - "setsebool -P virt_sandbox_use_fusefs on"
     - "setsebool -P virt_use_fusefs on"
   
+- name: Open GlusterFS Ports
+  firewalld:
+      state: enabled
+      zone: public
+      immediate: yes
+      permanent: yes
+      port: "{{ item }}"
+  become: true
+  loop:
+    - "24007/tcp"       #GlusterFS Daemon
+    - "24008/tcp"       #GlusterFS Management
+    - "49152-49154/tcp" #Gluster brick ports
+
 - name: Install Heketi on master
   become: true
   yum:
