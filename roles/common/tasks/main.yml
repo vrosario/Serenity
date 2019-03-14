@@ -81,6 +81,17 @@
       - docker-1.13.1
       - glusterfs-fuse
       - centos-release-openshift-origin310
+
+- name: Open required Ports
+  firewalld:
+      state: enabled
+      zone: public
+      immediate: yes
+      permanent: yes
+      port: "{{ item }}"
+  become: true
+  loop:
+    - "8443/tcp"
 # - name: Uninstall Origin 3.11
 #   become: true
 #   yum:
