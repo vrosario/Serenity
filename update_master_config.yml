@@ -1,0 +1,9 @@
+---
+- hosts: openshift_master
+  become: true
+  copy:
+    src: "files/master-config.yaml"
+    dest: "/etc/origin/master/master-config.yaml"
+    owner: "root"
+    group: "root"
+    mode: 644
