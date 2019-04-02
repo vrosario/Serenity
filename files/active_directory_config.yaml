@@ -1,0 +1,17 @@
+kind: LDAPSyncConfig
+apiVersion: v1
+url: ldap://dc1.lab.local:389
+bindDN: "CN=LDAP,CN=Users,DC=lab,DC=local"
+bindPassword:
+  file: bindPassword.encrypted
+  keyFile: bindPassword.key
+insecure: true
+activeDirectory:
+    usersQuery:
+        baseDN: "ou=IST,dc=lab,dc=local"
+        scope: sub
+        derefAliases: never
+        filter: (objectclass=user)
+        pageSize: 0
+    userNameAttributes: [ sAMAccountName ] 
+    groupMembershipAttributes: [ memberOf ]

@@ -1,0 +1,24 @@
+oauthConfig:
+  identityProviders:
+  - name: "my_ldap_provider" 
+    challenge: true 
+    login: true 
+    mappingMethod: claim 
+    provider:
+      apiVersion: v1
+      kind: LDAPPasswordIdentityProvider
+      attributes:
+        id: 
+        - dn
+        email: 
+        - mail
+        name: 
+        - cn
+        preferredUsername: 
+        - uid
+      bindDN: "CN=Victor Rosario,CN=Users,DC=lab,DC=local"
+      bindPassword:
+        file: bindPassword.encrypted
+        keyFile: bindPassword.key
+      insecure: true 
+      url: "ldap://dc1.lab.local/cn=users,dc=lab,dc=local?sAMAccountName"
