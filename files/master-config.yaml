@@ -152,7 +152,7 @@ oauthConfig:
       apiVersion: v1
       file: /etc/origin/master/htpasswd
       kind: HTPasswdPasswordIdentityProvider
-  - name: "Active_Directory" 
+  - name: "Active Directory" 
     challenge: true 
     login: true 
     mappingMethod: claim 
