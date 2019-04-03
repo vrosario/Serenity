@@ -1,7 +1,7 @@
 ---
 - hosts: openshift_master
   tasks:
-  - name: Copy master
+  - name: Copy master-config file
     become: true
     copy:
       src: "files/master-config.yaml"
