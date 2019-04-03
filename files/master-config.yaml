@@ -26,6 +26,23 @@ admissionConfig:
           reject: true
           skipOnResolutionFailure: true
         kind: ImagePolicyConfig
+    ProjectRequestLimit:
+      configuration:
+        apiVersion: v1
+        kind: ProjectRequestLimitConfig
+        limits:
+        - selector:
+            level: admin 
+        - selector:
+            level: ist-faculty
+          maxProject: 5
+        - selector:
+            level: ist-student-adv 
+          maxProjects: 2
+        - selector:
+            level: ist-student 
+          maxProjects: 1
+        - maxProjects: 1
 aggregatorConfig:
   proxyClientInfo:
     certFile: aggregator-front-proxy.crt

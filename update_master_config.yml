@@ -1,9 +1,17 @@
 ---
 - hosts: openshift_master
-  become: true
-  copy:
-    src: "files/master-config.yaml"
-    dest: "/etc/origin/master/master-config.yaml"
-    owner: "root"
-    group: "root"
-    mode: 644
+  tasks:
+  - name: Copy master
+    become: true
+    copy:
+      src: "files/master-config.yaml"
+      dest: "/etc/origin/master/master-config.yaml"
+      owner: "root"
+      group: "root"
+      mode: 644
+  - name: Restart master services
+    become: true
+    command: "{{ item }}"
+    with_items:
+      - "/usr/local/bin/master-restart api"
+      - "/usr/local/bin/master-restart controller"
