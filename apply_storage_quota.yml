@@ -1,0 +1,18 @@
+---
+- hosts: openshift_master
+  tasks:
+  - name: Copy storage quota file
+    become: true
+    copy:
+      src: "files/storage-consumption.yaml"
+      dest: "/etc/origin/master/storage-consumption.yaml"
+      owner: "root"
+      group: "root"
+      mode: 644
+  - name: Create storage quota
+    become: true
+    command: "{{ item }}"
+    args:
+      chdir: "/etc/origin/master/"
+    with_items:
+      - "oc create -f storage-consumption.yaml"
