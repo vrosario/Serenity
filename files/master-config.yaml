@@ -102,6 +102,7 @@ imageConfig:
   latest: false
 imagePolicyConfig:
   internalRegistryHostname: docker-registry.default.svc:5000
+  externalRegistryHostname: docker-registry.serenity.lab.local:5000
 kind: MasterConfig
 kubeletClientInfo:
   ca: ca-bundle.crt
