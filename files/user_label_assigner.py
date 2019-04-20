@@ -1,3 +1,4 @@
+#!/bin/python
 from shell import Shell
 import pprint
 
