@@ -15,11 +15,11 @@ for index, oc_groups in enumerate(sh.output()):
         group_users= groups_temp[1:]
         if group_dn == 'CN=ist-students,OU=IST,DC=lab,DC=local':
             for user in group_users:
-                student_users.append(group_users.strip(','))
+                student_users.append(user.strip(','))
             # student_users.append(group_users.split(',').strip())
         elif group_dn == 'CN=ist-faculty,OU=IST,DC=lab,DC=local':
             for user in group_users:
-                faculty_users.append(group_users.strip(','))
+                faculty_users.append(user.strip(','))
             # faculty_users.append(group_users.split(',').strip())
 
 pp.pprint(student_users)
