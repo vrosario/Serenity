@@ -8,7 +8,7 @@ faculty_users = []
 sh = Shell()
 sh.run('oc get groups')
 for index, oc_groups in enumerate(sh.output()):
-    if index > 2:    
+    if index > 0:    
         print(oc_groups)
         groups_temp = oc_groups.split()
         group_dn = groups_temp[0]
