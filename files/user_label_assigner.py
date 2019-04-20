@@ -5,6 +5,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 student_users = []
 faculty_users = []
+admin_users = []
 sh = Shell()
 sh.run('oc get groups')
 for index, oc_groups in enumerate(sh.output()):
@@ -16,11 +17,13 @@ for index, oc_groups in enumerate(sh.output()):
         if group_dn == 'CN=ist-students,OU=IST,DC=lab,DC=local':
             for user in group_users:
                 student_users.append(user.strip(','))
-            # student_users.append(group_users.split(',').strip())
         elif group_dn == 'CN=ist-faculty,OU=IST,DC=lab,DC=local':
             for user in group_users:
                 faculty_users.append(user.strip(','))
-            # faculty_users.append(group_users.split(',').strip())
+        elif group_dn == 'CN=ist-administrators,OU=IST,DC=lab,DC=local':
+            for user in group_users:
+                admin_users.append(user.strip(','))
 
 pp.pprint(student_users)
 pp.pprint(faculty_users)
+pp.pprint(admin_users)
