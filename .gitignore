@@ -20,3 +20,6 @@ roles/*.*
 
 # Ansible playbook retry files
 *.retry
+
+# .vscode directory
+.vscode/
