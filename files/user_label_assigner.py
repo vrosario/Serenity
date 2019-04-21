@@ -1,13 +1,15 @@
 #!/bin/python
 from shell import Shell
-import pprint
+import pprint, re
 
 pp = pprint.PrettyPrinter(indent=4)
 student_users = []
 faculty_users = []
 admin_users = []
+
 sh = Shell()
 sh.run('oc get groups')
+''' Extract users and assign them to lists depending on groups '''
 for index, oc_groups in enumerate(sh.output()):
     if index > 0:    
         print(oc_groups)
@@ -27,3 +29,8 @@ for index, oc_groups in enumerate(sh.output()):
 pp.pprint(student_users)
 pp.pprint(faculty_users)
 pp.pprint(admin_users)
+
+# for user in student_users:
+#     sh.run('oc ')
+sh.run('oc get users')
+re.split('\s+', sh.output())

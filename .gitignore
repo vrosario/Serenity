@@ -23,3 +23,6 @@ roles/*.*
 
 # .vscode directory
 .vscode/
+
+# .idea directory
+.idea/
