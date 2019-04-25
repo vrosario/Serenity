@@ -179,11 +179,13 @@ oauthConfig:
       kind: LDAPPasswordIdentityProvider
       attributes:
         id: 
-        - dn
+        # - dn
+        - sAMAccountName
         email: 
         - mail
         name: 
-        - cn
+        # - cn
+        - sAMAccountName
         preferredUsername: 
         - uid
       bindDN: "CN=LDAP,CN=Users,DC=lab,DC=local" 

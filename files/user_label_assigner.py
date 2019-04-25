@@ -8,23 +8,22 @@ faculty_users = []
 admin_users = []
 
 sh = Shell()
-sh.run('oc get groups')
+sh.run('oc get groups --no-headers=true')
 ''' Extract users and assign them to lists depending on groups '''
-for index, oc_groups in enumerate(sh.output()):
-    if index > 0:    
-        print(oc_groups)
-        groups_temp = oc_groups.split()
-        group_dn = groups_temp[0]
-        group_users= groups_temp[1:]
-        if group_dn == 'CN=ist-students,OU=IST,DC=lab,DC=local':
-            for user in group_users:
-                student_users.append(user.strip(','))
-        elif group_dn == 'CN=ist-faculty,OU=IST,DC=lab,DC=local':
-            for user in group_users:
-                faculty_users.append(user.strip(','))
-        elif group_dn == 'CN=ist-administrators,OU=IST,DC=lab,DC=local':
-            for user in group_users:
-                admin_users.append(user.strip(','))
+for oc_groups in sh.output():
+    print(oc_groups)
+    groups_temp = oc_groups.split()
+    group_dn = groups_temp[0]
+    group_users= groups_temp[1:]
+    if group_dn == 'CN=ist-students,OU=IST,DC=lab,DC=local':
+        for user in group_users:
+            student_users.append(user.strip(','))
+    elif group_dn == 'CN=ist-faculty,OU=IST,DC=lab,DC=local':
+        for user in group_users:
+            faculty_users.append(user.strip(','))
+    elif group_dn == 'CN=ist-administrators,OU=IST,DC=lab,DC=local':
+        for user in group_users:
+            admin_users.append(user.strip(','))
 
 pp.pprint(student_users)
 pp.pprint(faculty_users)
