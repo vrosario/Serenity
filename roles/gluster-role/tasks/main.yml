@@ -83,5 +83,6 @@
     state: directory
   with_items:
     - "/data/openshift/brick"
+  when: apply_gluster_role == true and gluster_create_filesystem == true
 - import_tasks: gluster-tasks.yml
   when: apply_gluster_role == true and gluster_create_filesystem == true
